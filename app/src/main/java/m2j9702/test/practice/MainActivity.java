@@ -3,9 +3,10 @@ package m2j9702.test.practice;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -15,15 +16,17 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final CheckBox checkBox = (CheckBox) findViewById(R.id.my_checkbox);
-        final Button button = (Button) findViewById(R.id.my_button);
+        final ProgressBar progress = (ProgressBar) findViewById(R.id.my_progress);
+        Button button = (Button) findViewById(R.id.my_button);
 
-        checkBox.setOnClickListener(new View.OnClickListener()
+        button.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                button.setEnabled(!button.isEnabled());
+                progress.setProgress(progress.getProgress() + 5);
+
+                Log.i("jkllkjlkl", progress.getProgress()+"");
             }
         });
     }
