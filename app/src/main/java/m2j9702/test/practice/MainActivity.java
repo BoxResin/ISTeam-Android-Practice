@@ -16,14 +16,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         final CheckBox checkBox = (CheckBox) findViewById(R.id.my_checkbox);
-        Button button = (Button) findViewById(R.id.my_button);
+        final Button button = (Button) findViewById(R.id.my_button);
 
-        button.setOnClickListener(new View.OnClickListener()
+        checkBox.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                checkBox.setChecked(!checkBox.isChecked());
+                button.setEnabled(!button.isEnabled());
             }
         });
     }
