@@ -8,7 +8,27 @@
     <EditText
         android:id="@+id/edit_input"
         android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        android:layout_height="100dp"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:id="@+id/edit_input2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:id="@+id/edit_input3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:id="@+id/edit_input4"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:singleLine="true"
+        android:imeOptions="actionDone"/>
 
     <Button
         android:id="@+id/btn"
