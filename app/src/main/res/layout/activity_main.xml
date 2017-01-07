@@ -1,8 +1,60 @@
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+	xmlns:android = "http://schemas.android.com/apk/res/android"
+	xmlns:tools = "http://schemas.android.com/tools"
+	android:layout_width = "match_parent"
+	android:layout_height = "match_parent"
+	android:gravity = "center"
+	android:orientation = "vertical">
 
+	<!-- 알림 문구 -->
+	<TextView
+		android:id = "@+id/txt_alert"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_marginBottom = "10dp"
+		android:text = "아이디나 비밀번호가 입력되지 않았습니다."
+		android:textColor = "#F00"
+		android:visibility = "visible"/>
+
+	<!-- 로그인 창 -->
+	<LinearLayout
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content">
+
+		<LinearLayout
+			android:layout_width = "160dp"
+			android:layout_height = "wrap_content"
+			android:orientation = "vertical">
+
+			<EditText
+				android:id = "@+id/edit_id"
+				android:layout_width = "match_parent"
+				android:layout_height = "wrap_content"
+				android:hint = "아이디"
+				android:imeOptions = "actionNext"
+				android:singleLine = "true"
+				android:textSize = "20dp"
+				tools:background = "#FF0"/>
+
+			<EditText
+				android:id = "@+id/edit_password"
+				android:layout_width = "match_parent"
+				android:layout_height = "wrap_content"
+				android:hint = "비밀번호"
+				android:imeOptions = "actionDone"
+				android:inputType = "textWebPassword"
+				android:singleLine = "true"
+				android:textSize = "20dp"
+				tools:background = "#0F0"/>
+		</LinearLayout>
+
+		<!-- 로그인 버튼 -->
+		<Button
+			android:id = "@+id/btn_login"
+			android:layout_width = "wrap_content"
+			android:layout_height = "match_parent"
+			android:enabled = "false"
+			android:text = "로그인"
+			android:textSize = "20dp"/>
+	</LinearLayout>
 </LinearLayout>
