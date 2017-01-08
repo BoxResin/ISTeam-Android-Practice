@@ -5,34 +5,81 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edit_input"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:singleLine="true"
-        android:imeOptions="actionNext"/>
-    <EditText
-        android:id="@+id/edit_input2"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:singleLine="true"
-        android:imeOptions="actionNext"/>
-    <EditText
-        android:id="@+id/edit_input3"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:singleLine="true"
-        android:imeOptions="actionNext"/>
-    <EditText
-        android:id="@+id/edit_input4"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:singleLine="true"
-        android:imeOptions="actionDone"/>
+        android:layout_height="0dp"
+        android:layout_weight="1.5"/>
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/text_notice"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="아이디나 비밀번호가 입력되지 않았습니다."
+            android:gravity="center"
+            android:textSize="15dp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edit_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:hint="아이디"
+                    android:textSize="23dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
+
+                <EditText
+                    android:id="@+id/edit_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:hint="비밀번호"
+                    android:textSize="23dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="로그인"
+                android:textSize="23dp"
+                android:enabled="false"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"/>
+
 </LinearLayout>
