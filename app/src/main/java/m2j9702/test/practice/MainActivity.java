@@ -12,16 +12,34 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
+
+    private EditText editEmail;
+    private EditText editNickname;
+    private EditText editPassword;
+    private EditText editPasswordCheck;
+    private TextView txtEmailAlert;
+    private TextView txtNicknameAlert;
+    private TextView txtPasswordAlert;
+    private TextView txtPasswordCheckAlert;
+    private Button btnSignUp;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView txtAlert = (TextView) findViewById(R.id.txt_alert);
-        final EditText editId = (EditText) findViewById(R.id.edit_id);
-        final EditText editPassword = (EditText) findViewById(R.id.edit_password);
-        final Button btnLogin = (Button) findViewById(R.id.btn_login);
+        editEmail = (EditText) findViewById(R.id.edit_email);
+        editNickname = (EditText) findViewById(R.id.edit_nickname);
+        editPassword = (EditText) findViewById(R.id.edit_password);
+        editPasswordCheck = (EditText) findViewById(R.id.edit_password_check);
+
+        txtEmailAlert = (TextView) findViewById(R.id.txt_email_alert);
+        txtNicknameAlert = (TextView) findViewById(R.id.txt_nickname_alert);
+        txtPasswordAlert = (TextView) findViewById(R.id.txt_password_alert);
+        txtPasswordCheckAlert = (TextView) findViewById(R.id.txt_password_check_alert);
+
+        btnSignUp = (Button) findViewById(R.id.btn_sign_up);
 
         TextWatcher textWatcher = new TextWatcher()
         {
@@ -38,22 +56,66 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                // 아이디와 비밀번호가 모두 입력되었을 때
-                if (editId.getText().toString().length() > 0 && editPassword.getText().toString().length() > 0)
-                {
-                    txtAlert.setVisibility(View.INVISIBLE);
-                    btnLogin.setEnabled(true);
-                }
+                int okCount = 0;
 
-                // 아이디나 비밀번호가 입력되지 않았을 때
+                // 이메일 체크
+                if (checkEmail(editEmail.getText().toString()))
+                {
+                    okCount++;
+                    txtEmailAlert.setVisibility(View.INVISIBLE);
+                }
+                else txtEmailAlert.setVisibility(View.VISIBLE);
+
+                // 닉네임 체크
+                if (!editNickname.getText().toString().equals(""))
+                {
+                    okCount++;
+                    txtNicknameAlert.setVisibility(View.INVISIBLE);
+                }
+                else txtNicknameAlert.setVisibility(View.VISIBLE);
+
+                // 비밀번호 체크
+                if (editPassword.getText().toString().length() >= 8)
+                {
+                    okCount++;
+                    txtPasswordAlert.setVisibility(View.INVISIBLE);
+                }
+                else txtPasswordAlert.setVisibility(View.VISIBLE);
+
+                // 비밀번호 확인 체크
+                if (editPasswordCheck.getText().toString().equals(editPassword.getText().toString()))
+                {
+                    okCount++;
+                    txtPasswordCheckAlert.setVisibility(View.INVISIBLE);
+                }
+                else
+                    txtPasswordCheckAlert.setVisibility(View.VISIBLE);
+
+                if (okCount == 4)
+                    btnSignUp.setVisibility(View.VISIBLE);
+                else btnSignUp.setVisibility(View.INVISIBLE);
+            }
+
+	        /**
+             * 이메일 형식이 올바른지 체크하는 메서드
+             * @return 올바르면 true, 그렇지 않으면 false
+             */
+            private boolean checkEmail(String email)
+            {
+                if (email.equals(""))
+                    return false;
                 else
                 {
-                    txtAlert.setVisibility(View.VISIBLE);
-                    btnLogin.setEnabled(false);
+                    String[] tokens = email.split("@");
+                    if (tokens.length == 2)
+                        return true;
+                    else return false;
                 }
             }
         };
-        editId.addTextChangedListener(textWatcher);
+        editEmail.addTextChangedListener(textWatcher);
+        editNickname.addTextChangedListener(textWatcher);
         editPassword.addTextChangedListener(textWatcher);
+        editPasswordCheck.addTextChangedListener(textWatcher);
     }
 }
