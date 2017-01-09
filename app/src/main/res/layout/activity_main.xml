@@ -1,37 +1,92 @@
-<GridLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="4"
-    android:rowCount="5">
+    android:orientation="vertical"
+    android:padding="50dp">
 
-    <Button/>
-    <Button/>
-    <Button/>
-    <Button/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
-    <Button/>
-    <Button
-        android:layout_gravity="fill"
-        android:layout_rowSpan="3"/>
-    <Button/>
-    <Button/>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="7">
 
-    <Button/>
-    <Button
-        android:layout_gravity="fill"
-        android:layout_columnSpan="2"/>
-    <Button/>
-    <Button/>
+        <TextView
+            android:text="이메일"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
 
-    <Button/>
-    <Button/>
-    <Button/>
-    <Button/>
+        <EditText
+            android:layout_gravity="fill"
+            android:layout_columnSpan="2"
+            android:hint="something@domain.com"
+            android:singleLine="true"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:text="이메일 형식이 올바르지 않습니다."
+            android:textColor="#FF0000"
+            android:layout_columnSpan="3"/>
 
-    <Button/>
-    <Button/>
-    <Button/>
-    <Button/>
-</GridLayout>
+        <TextView
+            android:text="닉네임"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
+
+        <EditText
+            android:layout_gravity="fill"
+            android:layout_columnSpan="2"
+            android:hint="something"
+            android:singleLine="true"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:text="이메일 형식이 올바르지 않습니다."
+            android:textColor="#FF0000"
+            android:layout_columnSpan="3"/>
+
+        <TextView
+            android:text="비밀번호"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
+
+        <EditText
+            android:layout_gravity="fill"
+            android:layout_columnSpan="2"
+            android:hint="8자 이상"
+            android:singleLine="true"
+            android:layout_marginLeft="20dp"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:text="8글자 이상이어야 합니다."
+            android:textColor="#FF0000"
+            android:layout_gravity="fill"
+            android:layout_columnSpan="3"/>
+
+        <TextView
+            android:layout_gravity="fill"
+            android:layout_columnSpan="1"/>
+
+        <EditText
+            android:layout_gravity="fill"
+            android:layout_columnSpan="2"
+            android:hint="비밀번호 확인"
+            android:inputType="textPassword"
+            android:layout_marginLeft="20dp"/>
+
+    </GridLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
