@@ -106,7 +106,8 @@
             android:layout_columnSpan="3"
             android:text="회원가입"
             android:visibility="invisible"
-            tools:visibility="visible"/>
+            tools:visibility="visible"
+            android:background="@drawable/btn"/>
 
     </GridLayout>
 
