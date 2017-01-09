@@ -1,80 +1,37 @@
-<TableLayout
+<GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:columnCount="4"
+    android:rowCount="5">
 
-    <TableRow>
+    <Button/>
+    <Button/>
+    <Button/>
+    <Button/>
 
-        <Button
-            android:layout_weight="1"
-            android:layout_span="2"/>
+    <Button/>
+    <Button
+        android:layout_gravity="fill"
+        android:layout_rowSpan="3"/>
+    <Button/>
+    <Button/>
 
-        <Button
-            android:layout_weight="1"/>
+    <Button/>
+    <Button
+        android:layout_gravity="fill"
+        android:layout_columnSpan="2"/>
+    <Button/>
+    <Button/>
 
-        <Button
-            android:layout_weight="1"/>
-    </TableRow>
+    <Button/>
+    <Button/>
+    <Button/>
+    <Button/>
 
-    <TableRow>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-    </TableRow>
-
-    <TableRow>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-    </TableRow>
-
-    <TableRow>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-    </TableRow>
-
-    <TableRow>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-
-        <Button
-            android:layout_weight="1"/>
-    </TableRow>
-
-</TableLayout>
+    <Button/>
+    <Button/>
+    <Button/>
+    <Button/>
+</GridLayout>
