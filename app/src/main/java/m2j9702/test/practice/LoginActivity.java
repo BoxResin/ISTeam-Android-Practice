@@ -40,9 +40,22 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher
             public void onClick(View v)
             {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,0);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if(requestCode == 0)
+        {
+            if(resultCode == RESULT_OK)
+            {
+                editId.setText(data.getStringExtra("id"));
+                editPassword.setText(data.getStringExtra("password"));
+            }
+        }
     }
 
     @Override

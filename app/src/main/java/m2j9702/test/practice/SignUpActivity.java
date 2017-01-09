@@ -29,6 +29,7 @@ public class SignUpActivity extends AppCompatActivity implements TextWatcher
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        setResult(RESULT_CANCELED);
 
         editEmail = (EditText) findViewById(R.id.edit_email);
         editNickname = (EditText) findViewById(R.id.edit_nickname);
@@ -49,9 +50,10 @@ public class SignUpActivity extends AppCompatActivity implements TextWatcher
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivity(intent);
+                Intent intent = new Intent();
+                intent.putExtra("id",editEmail.getText().toString());
+                intent.putExtra("password",editPassword1.getText().toString());
+                setResult(RESULT_OK,intent);
                 finish();
             }
         });
