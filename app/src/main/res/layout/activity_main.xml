@@ -5,22 +5,17 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="버튼"/>
+        android:text="버튼"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="겹치기"
-        android:textSize="50dp"
-        android:layout_below="@id/btn"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="두번째 텍스트"
-        android:layout_alignParentRight="true"/>
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>
