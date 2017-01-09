@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="50dp">
+   >
 
     <View
         android:layout_width="match_parent"
@@ -12,10 +12,11 @@
         android:layout_weight="1"/>
 
     <GridLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnCount="3"
-        android:rowCount="9">
+        android:rowCount="9"
+        android:layout_gravity="center">
 
         <TextView
             android:text="이메일"
@@ -103,7 +104,9 @@
             android:id="@+id/btn"
             android:layout_gravity="fill"
             android:layout_columnSpan="3"
-            android:text="회원가입"/>
+            android:text="회원가입"
+            android:visibility="invisible"
+            tools:visibility="visible"/>
 
     </GridLayout>
 
