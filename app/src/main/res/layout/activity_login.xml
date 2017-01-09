@@ -75,6 +75,16 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/text_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textSize="20dp"
+            android:textColor="#0054e5"
+            android:gravity="center"
+            android:clickable="true"/>
+
     </LinearLayout>
 
     <View

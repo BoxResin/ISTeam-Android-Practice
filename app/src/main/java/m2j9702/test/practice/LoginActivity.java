@@ -1,5 +1,6 @@
 package m2j9702.test.practice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,15 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class LoginActivity extends AppCompatActivity
+public class LoginActivity extends AppCompatActivity implements TextWatcher
 {
 
     private Button btnLogin;
     private EditText editId;
     private EditText editPassword;
     private TextView textNotice;
-    private boolean editIdState = false;
-    private boolean editPasswordState = false;
+    private TextView textSignUp;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -30,81 +30,45 @@ public class LoginActivity extends AppCompatActivity
         editId = (EditText) findViewById(R.id.edit_id);
         editPassword = (EditText) findViewById(R.id.edit_password);
         textNotice = (TextView) findViewById(R.id.text_notice);
+        textSignUp = (TextView) findViewById(R.id.text_signup);
 
-        editId.addTextChangedListener(new TextWatcher()
+        editId.addTextChangedListener(this);
+        editPassword.addTextChangedListener(this);
+        textSignUp.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            public void onClick(View v)
             {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
-                if(s.toString().length() > 0)
-                {
-                    editIdState = true;
-                    checkStates();
-
-                }
-                else
-                {
-                    editIdState = false;
-                    checkStates();
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s)
-            {
-
-            }
-        });
-        editPassword.addTextChangedListener(new TextWatcher()
-        {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
-                if(s.toString().length() > 0)
-                {
-                    editPasswordState = true;
-                    checkStates();
-
-                }
-                else
-                {
-                    editPasswordState = false;
-                    checkStates();
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s)
-            {
-
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(intent);
             }
         });
     }
 
-    void checkStates()
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after)
     {
-        if(editIdState && editPasswordState)
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count)
+    {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s)
+    {
+        if(editId.getText().toString().length() > 0 && editPassword.getText().toString().length() > 0)
         {
-            btnLogin.setEnabled(true);
             textNotice.setVisibility(View.INVISIBLE);
+            btnLogin.setEnabled(true);
         }
         else
         {
-            btnLogin.setEnabled(false);
             textNotice.setVisibility(View.VISIBLE);
+            btnLogin.setEnabled(false);
         }
     }
-
 }

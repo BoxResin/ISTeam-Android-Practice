@@ -1,5 +1,6 @@
 package m2j9702.test.practice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +44,17 @@ public class SignUpActivity extends AppCompatActivity implements TextWatcher
         editNickname.addTextChangedListener(this);
         editPassword1.addTextChangedListener(this);
         editPsassword2.addTextChangedListener(this);
+        btn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
