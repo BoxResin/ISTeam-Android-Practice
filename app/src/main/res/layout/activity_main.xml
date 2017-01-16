@@ -2,43 +2,57 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical"
+    android:background="#18a8ea">
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="2016년 ISTeam 겨울 트레이닝"
+            android:gravity="center"
+            android:textSize="15dp"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test"/>
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:text="5"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#e7bc0d"
+            />
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff">
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+        <EditText
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
 
 </LinearLayout>
