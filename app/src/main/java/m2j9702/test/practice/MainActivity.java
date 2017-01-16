@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity
         regist.setVisibility(GONE);
         email.addTextChangedListener(new CustomWatcher(email, space, warn1, warn2, warn3, warn4, regist));
         nick.addTextChangedListener(new CustomWatcher(nick, space, warn1, warn2, warn3, warn4, regist));
-        pwd1.addTextChangedListener(new CustomWatcher(pwd1, space, warn1, warn2, warn3, warn4, regist));
+        pwd1.addTextChangedListener(new CustomWatcher(pwd1, pwd2, warn1, warn2, warn3, warn4, regist));
         pwd2.addTextChangedListener(new CustomWatcher(pwd2, pwd1, warn1, warn2, warn3, warn4, regist));
     }
 }

@@ -15,15 +15,15 @@ import static m2j9702.test.practice.R.id.pwd2;
 public class CustomWatcher implements TextWatcher
 {
     private View view1, view2;
-    private TextView warn1,warn2,warn3,warn4;
+    private TextView warn1, warn2, warn3, warn4;
     private Button regist;
-    boolean checkemail = false, checkpwd = false;
+    static boolean checkemail = false, checkpwd = false;
     private String emailstr = new String();
     private String str1 = new String();
     private String str2 = new String();
 
 
-    public CustomWatcher(View view1, View view2, TextView warn1, TextView warn2,TextView warn3,TextView warn4, Button regist)
+    public CustomWatcher(View view1, View view2, TextView warn1, TextView warn2, TextView warn3, TextView warn4, Button regist)
     {
         this.view1 = view1;
         this.view2 = view2;
@@ -71,7 +71,6 @@ public class CustomWatcher implements TextWatcher
         else
         {
             warn1.setVisibility(View.VISIBLE);
-            regist.setVisibility(View.GONE);
         }
         if (MainActivity.l2 != 0)
         {
@@ -80,16 +79,22 @@ public class CustomWatcher implements TextWatcher
         else
         {
             warn2.setVisibility(View.VISIBLE);
-            regist.setVisibility(View.GONE);
         }
         if (MainActivity.l3 >= 8)
         {
             warn3.setVisibility(View.INVISIBLE);
+            if (checkpwd == false)
+            {
+                checkpwd = checkPwd((EditText) view1, (EditText) view2);
+            }
         }
         else
         {
             warn3.setVisibility(View.VISIBLE);
-            regist.setVisibility(View.GONE);
+            if (checkpwd)
+            {
+                checkpwd = checkPwd((EditText) view1, (EditText) view2);
+            }
         }
         if (checkpwd)
         {
@@ -98,9 +103,8 @@ public class CustomWatcher implements TextWatcher
         else
         {
             warn4.setVisibility(View.VISIBLE);
-            regist.setVisibility(View.GONE);
         }
-        if((checkemail)&&(MainActivity.l2 != 0)&&(MainActivity.l3 >= 8)&&(checkpwd))
+        if ((checkemail) && (MainActivity.l2 != 0) && (MainActivity.l3 >= 8) && (checkpwd))
         {
             regist.setVisibility(View.VISIBLE);
         }
@@ -141,12 +145,21 @@ public class CustomWatcher implements TextWatcher
         }
     }
 
-    public boolean checkPwd(EditText pwd1, EditText pwd2)
+    public boolean checkPwd(EditText ppwd1, EditText ppwd2)
     {
-        str1=pwd1.getText().toString();
-        str2=pwd2.getText().toString();
-        MainActivity.l4 = pwd1.length();
-        if ((MainActivity.l4 >= 8) && (pwd1.length() == pwd2.length()) && (str1.equals(str2)))
+        int l = 0;
+        str1 = ppwd1.getText().toString();
+        str2 = ppwd2.getText().toString();
+        switch (ppwd1.getId())
+        {
+            case pwd1:
+                l = MainActivity.l3 = ppwd1.length();
+                break;
+            case pwd2:
+                l = MainActivity.l4 = ppwd1.length();
+                break;
+        }
+        if ((l >= 8) && (ppwd1.length() == ppwd2.length()) && (str1.equals(str2)))
         {
             return true;
         }
