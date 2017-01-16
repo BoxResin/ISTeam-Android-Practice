@@ -12,73 +12,178 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="15"
-        android:layout_width="300dp"
+        android:layout_weight="60"
+        android:layout_width="350dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/warn"
+        <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="아이디나 비밀번호가 입력되지 않았습니다."
-            android:textColor="#FF0000"
-            android:gravity="center"/>
-
-        <LinearLayout
-            android:layout_weight="4"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_weight="2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="이메일"
+                    android:gravity="left|center_vertical"
+                    android:textSize="20dp"
+                    android:textColor="#000000"/>
 
                 <EditText
-                    android:id="@+id/id"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:hint="아이디"
-                    android:textSize="25dp"
+                    android:id="@+id/email"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:hint="something@domain.com"
+                    android:textSize="20dp"
                     android:imeOptions="actionNext"
                     android:singleLine="true"/>
 
-                <EditText
-                    android:id="@+id/pwd"
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/warn1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="이메일 형식이 올바르지 않습니다."
+                android:textColor="#FF0000"
+                android:gravity="left|center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
                     android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:hint="비밀번호"
-                    android:textSize="25dp"
-                    android:inputType="textPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="닉네임"
+                    android:gravity="left|center_vertical"
+                    android:textSize="20dp"
+                    android:textColor="#000000"/>
+
+                <EditText
+                    android:id="@+id/nick"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:hint="something"
+                    android:textSize="20dp"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/warn2"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="닉네임을 입력하세요."
+                android:textColor="#FF0000"
+                android:gravity="left|center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="비밀번호"
+                    android:gravity="left|center_vertical"
+                    android:textSize="20dp"
+                    android:textColor="#000000"/>
+
+                <EditText
+                    android:id="@+id/pwd1"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:hint="8자 이상"
+                    android:textSize="20dp"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/warn3"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="8글자 이상이어야 합니다."
+                android:textColor="#FF0000"
+                android:gravity="left|center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    </LinearLayout>
+
+                <EditText
+                    android:id="@+id/pwd2"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:hint="비밀번호 확인"
+                    android:textSize="20dp"
                     android:imeOptions="actionDone"/>
 
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/warn4"
                 android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="비밀번호와 비밀번호 확인이 다릅니다."
+                android:textColor="#FF0000"
+                android:gravity="left|center_vertical"/>
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/btn"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="로그인"
-                        android:textSize="25dp"
-                        android:textColor="#9c9898"/>
-
-                </FrameLayout>
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -86,6 +191,29 @@
         android:layout_weight="20"
         android:layout_width="match_parent"
         android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/regist"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:text="회원가입"
+            android:textSize="30dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#000000"/>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
