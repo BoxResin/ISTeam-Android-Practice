@@ -3,6 +3,8 @@ package m2j9702.test.practice;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,11 +14,9 @@ import static android.view.View.GONE;
 
 public class MainActivity extends AppCompatActivity
 {
-    private TextView warn1, warn2, warn3, warn4;
-    private EditText email, nick, pwd1, pwd2;
-    private Button regist;
-    private View space;
-    public static int l1 = 0, l2 = 0, l3 = 0, l4 = 0;
+    private TextView txtEmail, txtNick, txtPwd, txtPwdCheck;
+    private EditText editEmail, editNick, editPwd, editPwdCheck;
+    private Button btnRegister;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -24,20 +24,124 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        warn1 = (TextView) findViewById(R.id.warn1);
-        warn2 = (TextView) findViewById(R.id.warn2);
-        warn3 = (TextView) findViewById(R.id.warn3);
-        warn4 = (TextView) findViewById(R.id.warn4);
-        email = (EditText) findViewById(R.id.email);
-        nick = (EditText) findViewById(R.id.nick);
-        pwd1 = (EditText) findViewById(R.id.pwd1);
-        pwd2 = (EditText) findViewById(R.id.pwd2);
-        regist = (Button) findViewById(R.id.regist);
+        txtEmail = (TextView) findViewById(R.id.txt_email);
+        txtNick = (TextView) findViewById(R.id.txt_nick);
+        txtPwd = (TextView) findViewById(R.id.txt_pwd);
+        txtPwdCheck = (TextView) findViewById(R.id.txt_pwd_check);
+        editEmail = (EditText) findViewById(R.id.edit_email);
+        editNick = (EditText) findViewById(R.id.edit_nick);
+        editPwd = (EditText) findViewById(R.id.edit_pwd);
+        editPwdCheck = (EditText) findViewById(R.id.edit_pwd_check);
+        btnRegister = (Button) findViewById(R.id.btn_register);
 
-        regist.setVisibility(GONE);
-        email.addTextChangedListener(new CustomWatcher(email, space, warn1, warn2, warn3, warn4, regist));
-        nick.addTextChangedListener(new CustomWatcher(nick, space, warn1, warn2, warn3, warn4, regist));
-        pwd1.addTextChangedListener(new CustomWatcher(pwd1, pwd2, warn1, warn2, warn3, warn4, regist));
-        pwd2.addTextChangedListener(new CustomWatcher(pwd2, pwd1, warn1, warn2, warn3, warn4, regist));
+        btnRegister.setVisibility(GONE);
+        TextWatcher listener = new TextWatcher()
+        {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                int okCount = 0;
+
+                //이메일 체크
+                if (checkEmail(editEmail))
+                {
+                    txtEmail.setVisibility(View.INVISIBLE);
+                    okCount++;
+                }
+                else
+                {
+                    txtEmail.setVisibility(View.VISIBLE);
+                }
+
+                //닉네임 체크
+                if (editNick.length() != 0)
+                {
+                    txtNick.setVisibility(View.INVISIBLE);
+                    okCount++;
+                }
+                else
+                {
+                    txtNick.setVisibility(View.VISIBLE);
+                }
+
+                //비밀번호 체크
+                if (editPwd.length() >= 8)
+                {
+                    txtPwd.setVisibility(View.INVISIBLE);
+                    okCount++;
+                }
+                else
+                {
+                    txtPwd.setVisibility(View.VISIBLE);
+                }
+
+                //비밀번호 확인 체크
+                if (editPwd.getText().toString().equals(editPwdCheck.getText().toString()))
+                {
+                    txtPwdCheck.setVisibility(View.INVISIBLE);
+                    okCount++;
+                }
+                else
+                {
+                    txtPwdCheck.setVisibility(View.VISIBLE);
+                }
+
+                //모든 조건 통과했을 때
+                if (okCount == 4)
+                {
+                    btnRegister.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    btnRegister.setVisibility(View.GONE);
+                }
+            }
+
+            public boolean checkEmail(EditText email)
+            {
+                int ck1 = 0, ck2 = 0;
+                int j = email.length() - 1;
+                String emailstr = email.getText().toString();
+
+                for (int i = 0; i < email.length(); i++)
+                {
+                    if (emailstr.charAt(i) == '@')
+                    {
+                        j = i;
+                        ck1++;
+                    }
+                    else if (emailstr.charAt(i) == '.')
+                    {
+                        if (j < i)
+                        {
+                            ck2++;
+                        }
+                    }
+                }
+                if ((email.length() >= 5) && (ck1 == 1) && (ck2 == 1))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        };
+
+        editEmail.addTextChangedListener(listener);
+        editNick.addTextChangedListener(listener);
+        editPwd.addTextChangedListener(listener);
+        editPwdCheck.addTextChangedListener(listener);
     }
 }
