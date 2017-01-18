@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_main"
+    <TextView
+        android:id="@+id/txt_second"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="GO TO SECOND"
+        android:text="second"
         android:gravity="center"
-        android:textSize="90dp"/>
+        android:textSize="100dp"/>
 
 </LinearLayout>
