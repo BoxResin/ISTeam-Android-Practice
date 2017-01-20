@@ -4,30 +4,40 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:orientation="vertical">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_test"
-        android:text="11111"
-        android:textColor="#b35f4fb3"
-        android:textSize="30dp"
-        android:background="#c3c4abd6"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_test2"
-        android:text="22222"
-        android:textColor="#b35f4fb3"
-        android:textSize="30dp"
-        android:background="#c3c4abd6"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_test3"
-        android:text="33333"
-        android:textColor="#b35f4fb3"
-        android:textSize="30dp"
-        android:background="#c3c4abd6"/>
+
+    <EditText
+        android:id="@+id/edit_test1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:enabled="false"
+        android:imeOptions="actionSearch"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/edit_test2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:imeOptions="actionNext"
+        android:inputType="datetime"
+        android:singleLine="true"/>
+
+    <EditText
+        android:id="@+id/edit_test3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:imeOptions="actionDone"
+        android:inputType="numberSigned"
+        android:singleLine="true"/>
+
+    <EditText
+        android:id="@+id/edit_test4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:imeOptions="actionNone"
+        android:inputType="textPhonetic"
+        android:singleLine="true"/>
 
 
 </LinearLayout>
