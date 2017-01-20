@@ -18,34 +18,29 @@ public class MainActivity extends AppCompatActivity
         final Button btnTest2 = (Button) findViewById(R.id.btn_test2);
         final Button btnTest3 = (Button) findViewById(R.id.btn_test3);
 
-        btnTest.setOnClickListener(new View.OnClickListener() //버튼 눌렀을 때 호출될 메소드 등록
+        View.OnClickListener listener = new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 //버튼이 눌릴 때마다 할 동작
-                btnTest2.setTextColor(0xB3F12A62);
-            }
-        });
-        btnTest2.setOnClickListener(new View.OnClickListener() //버튼 눌렀을 때 호출될 메소드 등록
-        {
-            @Override
-            public void onClick(View v)
-            {
-                //버튼이 눌릴 때마다 할 동작
-                btnTest3.setTextSize(15.0f);
-            }
-        });
-        btnTest3.setOnClickListener(new View.OnClickListener() //버튼 눌렀을 때 호출될 메소드 등록
-        {
-            @Override
-            public void onClick(View v)
-            {
-                //버튼이 눌릴 때마다 할 동작
-                btnTest.setBackgroundColor(0xC3A1C0C4);
-                btnTest2.setBackgroundColor(0xC3A1C0C4);
-            }
-        });
+                if (v == btnTest)
+                    btnTest2.setTextColor(0xB3F12A62);
+                else if (v == btnTest2)
+                    btnTest3.setTextSize(15.0f);
+                else
+                {
+                    btnTest.setBackgroundColor(0xC3A1C0C4);
+                    btnTest2.setBackgroundColor(0xC3A1C0C4);
+                }
 
+            }
+
+        };
+
+        btnTest.setOnClickListener(listener);
+        btnTest2.setOnClickListener(listener);
+        btnTest3.setOnClickListener(listener);
     }
 }
+
