@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity
         final EditText editPW = (EditText) findViewById(R.id.editPW);
         final Button btnLogin = (Button) findViewById(R.id.btnLogin);
 
-        TextWatcher txt_listener = new TextWatcher()
+        editID.addTextChangedListener(new TextWatcher()
         {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after)
@@ -37,59 +37,27 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count)
             {
-                if (s == editID)
+                if (s.toString().length() > 0)
                 {
-                    if (s.toString().length() > 0)
+                    bCheckID = true;
+                    if (bCheckID && bCheckPW)
                     {
-                        bCheckID = true;
-                        if (bCheckID && bCheckPW)
-                        {
-                            btnLogin.setEnabled(true);
-                            txtMessage.setVisibility(View.INVISIBLE);
-                        }
-
-
-                    }
-                    else
-                    {
-                        bCheckID = false;
-                        if (bCheckID && bCheckPW)
-                        {
-                            btnLogin.setEnabled(true);
-                            txtMessage.setVisibility(View.INVISIBLE);
-                        }
-
+                        btnLogin.setEnabled(true);
+                        txtMessage.setVisibility(View.INVISIBLE);
                     }
 
 
                 }
-
-                if (s == editPW)
+                else
                 {
-                    if (s.toString().length() > 0)
+                    bCheckID = false;
+                    if (bCheckID && bCheckPW)
                     {
-                        bCheckPW = true;
-                        if (bCheckID && bCheckPW)
-                        {
-                            btnLogin.setEnabled(true);
-                            txtMessage.setVisibility(View.INVISIBLE);
-                        }
-
-
-                    }
-                    else
-                    {
-                        bCheckID = false;
-                        if (bCheckID && bCheckPW)
-                        {
-                            btnLogin.setEnabled(true);
-                            txtMessage.setVisibility(View.INVISIBLE);
-                        }
-
+                        btnLogin.setEnabled(true);
+                        txtMessage.setVisibility(View.INVISIBLE);
                     }
 
                 }
-
 
             }
 
@@ -98,10 +66,50 @@ public class MainActivity extends AppCompatActivity
             {
 
             }
-        };
-        editID.addTextChangedListener(txt_listener);
-        editPW.addTextChangedListener(txt_listener);
-        txtMessage.addTextChangedListener(txt_listener);
+        });
+
+        editPW.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+                if (s.toString().length() > 0)
+                {
+                    bCheckPW = true;
+                    if (bCheckID && bCheckPW)
+                    {
+                        btnLogin.setEnabled(true);
+                        txtMessage.setVisibility(View.INVISIBLE);
+                    }
+
+
+                }
+                else
+                {
+                    bCheckID = false;
+                    if (bCheckID && bCheckPW)
+                    {
+                        btnLogin.setEnabled(true);
+                        txtMessage.setVisibility(View.INVISIBLE);
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+
+            }
+        });
+
     }
 }
 
