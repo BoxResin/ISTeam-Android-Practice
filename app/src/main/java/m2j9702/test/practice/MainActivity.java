@@ -12,9 +12,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
-    private boolean bCheckID = false;
-    private boolean bCheckPW = false;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
@@ -26,7 +23,7 @@ public class MainActivity extends AppCompatActivity
         final EditText editPW = (EditText) findViewById(R.id.editPW);
         final Button btnLogin = (Button) findViewById(R.id.btnLogin);
 
-        editID.addTextChangedListener(new TextWatcher()
+        TextWatcher textWatcher = new TextWatcher()
         {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after)
@@ -37,28 +34,27 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count)
             {
-                if (s.toString().length() > 0)
+                int okCount = 0;
+
+                if (editID.getText().toString().length() > 0)
                 {
-                    bCheckID = true;
-                    if (bCheckID && bCheckPW)
-                    {
-                        btnLogin.setEnabled(true);
-                        txtMessage.setVisibility(View.INVISIBLE);
-                    }
+                    ++okCount;
+                }
+                if (editPW.getText().toString().length() > 0)
+                {
+                    ++okCount;
+                }
 
-
+                if (okCount == 2)
+                {
+                    btnLogin.setEnabled(true);
+                    txtMessage.setVisibility(View.INVISIBLE);
                 }
                 else
                 {
-                    bCheckID = false;
-                    if (bCheckID && bCheckPW)
-                    {
-                        btnLogin.setEnabled(true);
-                        txtMessage.setVisibility(View.INVISIBLE);
-                    }
-
+                    btnLogin.setEnabled(false);
+                    txtMessage.setVisibility(View.VISIBLE);
                 }
-
             }
 
             @Override
@@ -66,50 +62,9 @@ public class MainActivity extends AppCompatActivity
             {
 
             }
-        });
-
-        editPW.addTextChangedListener(new TextWatcher()
-        {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
-                if (s.toString().length() > 0)
-                {
-                    bCheckPW = true;
-                    if (bCheckID && bCheckPW)
-                    {
-                        btnLogin.setEnabled(true);
-                        txtMessage.setVisibility(View.INVISIBLE);
-                    }
-
-
-                }
-                else
-                {
-                    bCheckID = false;
-                    if (bCheckID && bCheckPW)
-                    {
-                        btnLogin.setEnabled(true);
-                        txtMessage.setVisibility(View.INVISIBLE);
-                    }
-
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s)
-            {
-
-            }
-        });
-
+        };
+        editID.addTextChangedListener(textWatcher);
+        editPW.addTextChangedListener(textWatcher);
     }
 }
 
