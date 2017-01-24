@@ -53,4 +53,17 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
 		finish();
 	}
+
+	/**
+	 * 두 수의 최대공약수를 구하는 함수
+	 * @param a 첫 번째 수
+	 * @param b 두 번째 수
+	 * @return 두 수의 최대공약수
+	 */
+	public int getGCD(int a, int b)
+	{
+		if (b == 0)
+			return a;
+		return getGCD(b, a % b);
+	}
 }
